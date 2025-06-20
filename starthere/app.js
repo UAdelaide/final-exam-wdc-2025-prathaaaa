@@ -110,6 +110,8 @@ app.get('/api/walkrequests/open', async (req, res)=>{
       FROM WalkApplications wa JOIN WalkRequests wr ON wa.request_id = wr.request_id
       WHERE wa.walker_id= u.user_id AND wr.status= 'completed')
       AS completed_walks
+      FROM Users u
+      WHERE u.role= 'walker'
       `);
       res.json(rows);
   } catch(err){
