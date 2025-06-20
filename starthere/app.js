@@ -84,7 +84,12 @@ app.get('/api/dogs', async (req, res)=>{
 });
 
 //walk reqs
-app.get('/api/walkrequests/open', async (req, res)=>{})
+app.get('/api/walkrequests/open', async (req, res)=>{
+  try{
+    const[rows]= await db.execute(`
+      `)
+  }
+})
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
