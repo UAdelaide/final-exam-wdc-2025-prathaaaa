@@ -21,6 +21,7 @@ const dashRoutes = require('./routes/index');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
-app
+app.use('/', dashRoutes);
+
 // Export the app instead of listening here
 module.exports = app;
