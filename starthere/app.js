@@ -112,6 +112,7 @@ app.get('/api/walkrequests/open', async (req, res)=>{
       AS completed_walks
       FROM Users u
       WHERE u.role= 'walker'
+      LEFT JOIN WalkingRatings r ON u.user_id
       `);
       res.json(rows);
   } catch(err){
