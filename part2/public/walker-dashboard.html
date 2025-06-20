@@ -44,6 +44,7 @@
         const message = ref('');
         const error = ref('');
         const user = 3;
+          const currentUser = ref(null);
 
         async function loadWalkRequests() {
           try {
@@ -73,7 +74,18 @@
             message.value = '';
           }
         }
-        
+
+
+        async function getCurrentUser() {
+          try {
+            const res = await fetch('/api/users/me');
+            if (!res.ok) throw new Error('Not logged in');
+            currentUser.value = await res.json();
+          } catch (err) {
+            error.value = 'Failed to get current user';
+          }
+        }
+
 
         onMounted(() => {
           loadWalkRequests();
