@@ -78,7 +78,7 @@ app.get('/api/dogs', async (req, res)=>{
       res.json(rows);
 
   } catch (err){
-    res.status(500).json({error: 'Failed to fetch dogs', details:err.message});
+    res.status(500).json({error: 'Failed to fetch dogs', details: err.message});
 
   }
 });
@@ -95,7 +95,8 @@ app.get('/api/walkrequests/open', async (req, res)=>{
       `);
       res.json(rows);
   } catch(err){
-    res.status(500).json({error: 'Failed to fetch '})
+    res.status(500).json({error: 'Failed to fetch walk requests', details: err.message});
+    
   }
 })
 app.use(express.static(path.join(__dirname, 'public')));
