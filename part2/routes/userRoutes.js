@@ -29,7 +29,7 @@ router.post('/register', async (req, res) => {
   if(res[0].role==='owner'){
     return res.redirect('/owner/dashboard');
   }
-  res.
+  res.json({message:'Login Successful', user" })
 });
 
 router.get('/me', (req, res) => {
