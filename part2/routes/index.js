@@ -1,5 +1,6 @@
 const express = require('express');
 const router  = express.Router();
+const db = require('../models/db');
 
 router.get('/owner/dashboard', (req, res) => {
   if (req.session.user?.role === 'owner') {
