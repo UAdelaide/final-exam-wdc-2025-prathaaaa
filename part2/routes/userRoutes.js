@@ -30,7 +30,8 @@ router.post('/register', async (req, res) => {
     return res.redirect('/owner/dashboard');
   }
   res.json({message:'Login Successful', user: res[0]});
-  
+} catch (error) {
+    res.status(500).json({ error: 'Registration failed' });
 });
 
 router.get('/me', (req, res) => {
