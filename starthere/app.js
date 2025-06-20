@@ -67,7 +67,7 @@ app.get('/', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch books' });
   }
 });
-//get dogs 
+//get dogs
 app.get('/api/dogs', async (req, res)=>{
   try {
     const [rows] = await db.execute(`
@@ -83,7 +83,8 @@ app.get('/api/dogs', async (req, res)=>{
   }
 });
 
-
+//walk reqs
+app.get('/api')
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
