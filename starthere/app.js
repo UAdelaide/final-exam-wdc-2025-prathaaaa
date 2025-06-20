@@ -100,7 +100,8 @@ app.get('/api/walkrequests/open', async (req, res)=>{
   }
 });
 
-//summary 
+//summary
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
