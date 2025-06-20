@@ -101,7 +101,16 @@ app.get('/api/walkrequests/open', async (req, res)=>{
 });
 
 //summary
+app.get('/api/walkrequests/open', async (req, res)=>{
+  try{
+    const[rows]= await db.execute(`
+      `);
+      res.json(rows);
+  } catch(err){
+    res.status(500).json({error: 'Failed to fetch walk requests', details: err.message});
 
+  }
+});
 app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
