@@ -16,5 +16,14 @@ router.get('/walker/dashboard', (req, res) => {
     res.redirect('/');
   }
 });
-
+router.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error('Error destroying session:', err);
+      return res.status(500).send('Logout failed');
+    }
+    res.clearCookie('connect.sid'); // Clear session cookie
+    res.redirect('/');              // Back to login form
+  });
+});
 module.exports = router;              // <-- don’t forget this!
