@@ -77,7 +77,9 @@ app.get('/api/dogs', async (req, res)=>{
       `);
       res.json(rows);
 
-  } catch 
+  } catch (err){
+    res.status(500).json({})
+  }
 })
 app.use(express.static(path.join(__dirname, 'public')));
 
