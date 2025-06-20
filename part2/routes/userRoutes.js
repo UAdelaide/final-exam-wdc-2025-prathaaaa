@@ -26,7 +26,7 @@ router.post('/register', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: 'Registration failed' });
   }
-  if
+  if(res[0].role==='owner')
 });
 
 router.get('/me', (req, res) => {
