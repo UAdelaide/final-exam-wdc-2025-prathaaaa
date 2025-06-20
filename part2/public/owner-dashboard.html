@@ -71,6 +71,21 @@
 
   <script>
     const { createApp, ref, onMounted } = Vue;
+    const dogs = ref([]);
+
+    async function loadDogs() {
+      try {
+        const res = await fetch('/api/mydogs'); // or '/owner/dogs'
+        dogs.value = await res.json();
+      } catch (err) {
+        error.value = 'Failed to load your dogs';
+      }
+    }
+
+onMounted(() => {
+  loadDogs();
+  loadWalks();
+});
 
     createApp({
       setup() {
