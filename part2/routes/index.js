@@ -45,4 +45,28 @@ router.get('/owner/dogs', async (req, res) => {
   }
 });
 
+async function applyToWalk(requestId) {
+  if (!currentUser.value) {
+    error.value = 'No logged-in user';
+    return;
+  }
+
+  try {
+    const res = await fetch(`/api/walks/${requestId}/apply`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ walker_id: currentUser.value.user_id })  // ✅ Now dynamic
+    });
+
+    const result = await res.json();
+
+    if (!res.ok) throw new Error(result.error || 'Application failed');
+    message.value = result.message;
+    error.value = '';
+    await loadWalkRequests();
+  } catch (err) {
+    error.value = err.message;
+    message.value = '';
+  }
+}
 module.exports = router;              // <-- don’t forget this!
