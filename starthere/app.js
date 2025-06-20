@@ -95,7 +95,7 @@ app.get('/api/walkrequests/open', async (req, res)=>{
       `);
       res.json(rows);
   } catch(err){
-    res.status(500).json()
+    res.status(500).json({error: 'Failed to fetch '})
   }
 })
 app.use(express.static(path.join(__dirname, 'public')));
