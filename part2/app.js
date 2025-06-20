@@ -5,8 +5,8 @@ const session = require('express-session');
 app.use(session({
     secret:'supersecretkey',
     resave:false,
-    save
-}))
+    saveUninitialized: true;
+}));
 const app = express();
 
 // Middleware
