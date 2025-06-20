@@ -32,6 +32,7 @@ router.post('/register', async (req, res) => {
   res.json({message:'Login Successful', user: res[0]});
 } catch (error) {
     res.status(500).json({ error: 'Login failed' });
+  }
 });
 
 router.get('/me', (req, res) => {
