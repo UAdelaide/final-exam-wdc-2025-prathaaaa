@@ -17,10 +17,10 @@ app.use(session({
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
-const dash
+const dashRoutes = require('./routes/index');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
-
+app
 // Export the app instead of listening here
 module.exports = app;
