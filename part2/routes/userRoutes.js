@@ -29,6 +29,9 @@ router.post('/register', async (req, res) => {
   if(res[0].role==='owner'){
     return res.redirect('/owner/dashboard');
   }
+  if(res[0].role==='owner'){
+    return res.redirect('/owner/dashboard');
+  }
   res.json({message:'Login Successful', user: res[0]});
 } catch (error) {
     res.status(500).json({ error: 'Login failed' });
